@@ -64,9 +64,9 @@ st.markdown("""
   }
   /* A hook: pick the button immediately AFTER a <span id="blue-btn"> */
   .element-container:has(#blue-btn) + div button {
-    background-color: #ffffff !important;
+    background-color: #000000 !important;
     color: white !important;
-    border-color: #ffffff !important;
+    border-color: #000000 !important;
   }
 </style>
 """, unsafe_allow_html=True)
