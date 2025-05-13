@@ -137,7 +137,7 @@ def hybrid_search(query, base_url, top_k=5):
     if "program" in query.lower() or "study" in query.lower():
         keywords.extend(["certificate", "program", "course"])
     if "free" in query.lower() or "cost" in query.lower():
-        keywords.extend(["tuition", "free", "cost", "financial"])
+        keywords.extend(["", "free", "cost", "financial"])
     
     headers = {
         "Content-Type": "application/json",
@@ -234,7 +234,7 @@ def set_question(text):
 with col1:
     if st.button("Who provides wellness services?"):
         set_question("Who provides wellness services at Long Beach City College?")
-    if st.button("What is tuition at Long Beach City College?"):
+    if st.button("What is the tuition at LBCC?"):
         set_question("What is tuition at Long Beach City College?")
 with col2:
     if st.button("What programs are offered?"):
