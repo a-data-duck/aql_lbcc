@@ -85,7 +85,7 @@ st.markdown('<div class="bebas-text">Ask questions about Long Beach City College
 # Configure API keys (now hidden from sidebar)
 OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", "")
 PINECONE_API_KEY = st.secrets.get("PINECONE_API_KEY", "")
-PINECONE_URL = "https://mccd-docs-h3y3rrq.svc.aped-4627-b74a.pinecone.io"
+PINECONE_URL = "https://lbcc-docs-h3y3rrq.svc.aped-4627-b74a.pinecone.io"
 
 if not OPENAI_API_KEY or not PINECONE_API_KEY:
     st.error("Missing API keys. Please contact the administrator.")
