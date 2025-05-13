@@ -3,14 +3,14 @@ import json
 import requests
 
 # Hide sidebar
-st.set_page_config(page_title="Long Beach City College Q&A", page_icon="🎓", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Long Beach City College College Q&A", page_icon="🎓", initial_sidebar_state="collapsed")
 
 # Add logo in the upper right corner
 st.markdown("""
-<img src="https://placehold.co/100x50?text=Logo" style="position: absolute; top: 20px; right: 20px; width: 80px; z-index: 1000;">
+<img src="https://www.nasm.org/images/2018/nasm-academic/lbcc-2008-logo-tm.jpg?text=Logo" style="position: absolute; top: 40px; right: 20px; width: 80px; z-index: 1000;">
 """, unsafe_allow_html=True)
 
-# Custom CSS to hide the sidebar completely
+# Custom CSS with updated styling
 st.markdown("""
 <style>
   /* 1) Import fonts */
@@ -20,7 +20,7 @@ st.markdown("""
 
   /* 2) Yellow backdrop outside the main container */
   .stApp {
-    background-color: #ff0800 !important;
+    background-color: #FF0800 !important;
     padding: 30px;
   }
 
@@ -58,9 +58,9 @@ st.markdown("""
   /* 6) Override only the Submit button */
   /* Use the Streamlit attribute for the form-submit button */
   button[kind="formSubmit"] {
-    background-color: #1A23B3 !important;
+    background-color: #00205C !important;
     color: #fff !important;
-    border-color: #1A23B3 !important;
+    border-color: #00205C !important;
   }
   /* A hook: pick the button immediately AFTER a <span id="blue-btn"> */
   .element-container:has(#blue-btn) + div button {
@@ -78,10 +78,13 @@ if "question" not in st.session_state:
 # Set title
 st.title("Long Beach City College Q&A")
 
+# Main text with Bebas Neue font
+st.markdown('<div class="bebas-text">Ask questions about Long Beach City College\'s programs, services, and more.</div>', unsafe_allow_html=True)
+
 # Configure API keys (now hidden from sidebar)
 OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", "")
 PINECONE_API_KEY = st.secrets.get("PINECONE_API_KEY", "")
-PINECONE_URL = "https://lbcc-docs-h3y3rrq.svc.aped-4627-b74a.pinecone.io"
+PINECONE_URL = "https://mccd-docs-h3y3rrq.svc.aped-4627-b74a.pinecone.io"
 
 if not OPENAI_API_KEY or not PINECONE_API_KEY:
     st.error("Missing API keys. Please contact the administrator.")
@@ -194,6 +197,7 @@ def generate_answer(question, context):
     system_prompt = """You are a helpful assistant for Long Beach City College, a California community college.
 Answer questions based ONLY on the provided context. If you don't know the answer, say so.
 Be specific about services, programs, and resources offered by Long Beach City College.
+When answering about services like wellness services, ALWAYS mention the specific provider if it appears in the context.
 Do NOT generate images or respond to questions unrelated to Long Beach City College."""
     
     data = {
@@ -219,9 +223,6 @@ Do NOT generate images or respond to questions unrelated to Long Beach City Coll
     return result["choices"][0]["message"]["content"]
 
 # Main interface
-st.write("Ask questions about Long Beach City College's programs, services, and more.")
-
-# Example questions moved to main interface as buttons
 st.write("Try an example:")
 col1, col2 = st.columns(2)
 
@@ -278,7 +279,7 @@ if st.button("Submit") or (st.session_state.question and not question_input):
                 answer = generate_answer(st.session_state.question, context)
                 
                 # Display answer in larger font (without a heading)
-                st.markdown(f'<div class="big-font">{answer}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="big-font">{answer}</div><br><br>', unsafe_allow_html=True)
                 
                 # Display sources with smaller, italicized heading
                 st.markdown('<div class="small-italic">sources</div>', unsafe_allow_html=True)
