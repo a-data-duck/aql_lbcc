@@ -5,6 +5,11 @@ import requests
 # Hide sidebar
 st.set_page_config(page_title="Long Beach City College Q&A", page_icon="🎓", initial_sidebar_state="collapsed")
 
+# Add logo in the upper right corner
+st.markdown("""
+<img src="https://placehold.co/100x50?text=Logo" style="position: absolute; top: 20px; right: 20px; width: 80px; z-index: 1000;">
+""", unsafe_allow_html=True)
+
 # Custom CSS to hide the sidebar completely
 st.markdown("""
 <style>
