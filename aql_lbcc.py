@@ -9,11 +9,6 @@ st.set_page_config(page_title="Long Beach City College College Q&A", page_icon="
 st.markdown("""
 <img src="https://www.nasm.org/images/2018/nasm-academic/lbcc-2008-logo-tm.jpg?text=Logo" style="position: absolute; top: 40px; right: 20px; width: 80px; z-index: 1000;">
 <img src="https://images.squarespace-cdn.com/content/v1/656e9dc18baa570fb2025966/7bd67e53-0a11-4847-b106-30e1b9e3f42c/AQL-logo-new-48px2x.png" style="position: absolute; top: 40px; left: 20px; width: 80px; z-index: 1000;">
-<div style="position: absolute; top: 120px; left: 0; right: 0; text-align: center; font-size: 12px; z-index: 1000;">
-  <p style="margin: 0; padding: 0;"><i>an AQL Labs-developed proof of concept</p>
-  <p style="margin: 0; padding: 0;">operational through June 30, 2025</i></p>
-  <br>
-</div>
 """, unsafe_allow_html=True)
 
 # Custom CSS with updated styling
@@ -82,7 +77,6 @@ if "question" not in st.session_state:
     st.session_state.question = ""
 
 # Set title
-st.title(" ")
 st.title(" ")
 st.title("Long Beach City College Q&A")
 
@@ -300,3 +294,10 @@ if st.button("Submit") or (st.session_state.question and not question_input):
             st.error(f"An error occurred: {str(e)}")
             st.write("Please try again later.")
             st.write(f"Error details: {str(e)}")
+  
+st.markdown("""
+<div style="position: absolute; top: 120px; left: 0; right: 0; text-align: center; font-size: 12px; z-index: 1000;">
+  <p style="margin: 0; padding: 0;"><i>an AQL Labs-developed proof of concept</p>
+  <p style="margin: 0; padding: 0;">operational through June 30, 2025</i></p>
+</div>
+""", unsafe_allow_html=True)
