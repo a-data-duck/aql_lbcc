@@ -297,7 +297,8 @@ if st.button("Submit") or (st.session_state.question and not question_input):
   
 st.markdown("""
 <div style="position: absolute; top: 120px; left: 0; right: 0; text-align: center; font-size: 12px; z-index: 1000; color: #FEFEFE; font-style: italic;">
-  <p style="margin: 0; padding: 0;">an AQL Labs-developed proof of concept</p>
+  <p style="margin: 0; padding: 0;">an AQL Labs proof-of-concept</p>
   <p style="margin: 0; padding: 0;">operational through June 30, 2025</p>
+  <br>
 </div>
 """, unsafe_allow_html=True)
