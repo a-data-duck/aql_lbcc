@@ -21,7 +21,7 @@ st.markdown("""
 
   /* 2) Yellow backdrop outside the main container */
   .stApp {
-    background-color: #DC291F !#FF0800 important;
+    background-color: #DC291F !important;
     padding: 30px;
   }
 
