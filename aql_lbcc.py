@@ -296,8 +296,8 @@ if st.button("Submit") or (st.session_state.question and not question_input):
             st.write(f"Error details: {str(e)}")
   
 st.markdown("""
-<div style="position: absolute; top: 120px; left: 0; right: 0; text-align: center; font-size: 12px; z-index: 1000;">
-  <p style="margin: 0; padding: 0;"><i>an AQL Labs-developed proof of concept</p>
-  <p style="margin: 0; padding: 0;">operational through June 30, 2025</i></p>
+<div style="position: absolute; top: 120px; left: 0; right: 0; text-align: center; font-size: 12px; z-index: 1000; color: #999999; font-style: italic;">
+  <p style="margin: 0; padding: 0;">an AQL Labs-developed proof of concept</p>
+  <p style="margin: 0; padding: 0;">operational through June 30, 2025</p>
 </div>
 """, unsafe_allow_html=True)
